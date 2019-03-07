@@ -121,7 +121,7 @@ callAPI man fromJSON' config stripeRequest = do
         let req = Http.applyBasicAuth (getStripeKey (secretKey config)) mempty $
                   defaultRequest {
                     Http.method = m2m (S.method stripeRequest)
-                  , Http.secure = True
+                  , Http.secure = False
                   , Http.host = getEndpoint $ fromMaybe defaultEndpoint (stripeEndpoint config)
                   , Http.port = 12112
                   , Http.path = "/v1/" <> TE.encodeUtf8 (S.endpoint stripeRequest)
