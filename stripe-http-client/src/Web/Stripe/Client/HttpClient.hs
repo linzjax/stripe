@@ -123,7 +123,7 @@ callAPI man fromJSON' config stripeRequest = do
                     Http.method = m2m (S.method stripeRequest)
                   , Http.secure = True
                   , Http.host = getEndpoint $ fromMaybe defaultEndpoint (stripeEndpoint config)
-                  , Http.port = 443
+                  , Http.port = 12112
                   , Http.path = "/v1/" <> TE.encodeUtf8 (S.endpoint stripeRequest)
                   , Http.requestHeaders = [
                         ("Stripe-Version", toBytestring stripeVersion)
