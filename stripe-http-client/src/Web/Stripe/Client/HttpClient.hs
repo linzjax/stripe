@@ -111,6 +111,7 @@ callAPI man fromJSON' config stripeRequest = do
         return unknownCode
 
     else do
+        print (Http.responseBody res)
         case A.eitherDecode (Http.responseBody res) of
             Left e  -> pure $ parseFail e
             Right a -> pure $ handleStream fromJSON' status $ return a
